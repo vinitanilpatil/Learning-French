@@ -1,1 +1,310 @@
+<!--    
 
+Made by: Vinit;
+made with: hardwork & hands;
+made in: 7 working hours;
+
+if you face any problems,errors or responsive problems you can dm me on discord link at bottom of readme file, i'll fix it ASAP;
+
+
+new update: added text color change function;
+: added custom image selector & select from device option;
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pro image editor</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Azeret+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="wrapper">
+<div id="image_section">
+<p id="wm_text"></p>
+<img src="https://images.unsplash.com/photo-1436891436013-5965265af5fc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zmxvd2Vyc3xlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60"  alt="!" id="main_image" />
+<br>
+<img src="https://images.unsplash.com/photo-1551668231-6a07c2b7d544?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDN8fGJpcmRzfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="!" id="alt_img_1" class="alt-img" onclick="add_image(this.src)" />
+<img src="https://c4.wallpaperflare.com/wallpaper/210/50/431/5bd2b866832bf-wallpaper-preview.jpg" alt="!" id="alt_img_1" class="alt-img" onclick="add_image(this.src)" />
+<img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=60" alt="!" id="alt_img_1" class="alt-img" onclick="add_image(this.src)" />
+<img src="https://images.unsplash.com/photo-1436891436013-5965265af5fc?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zmxvd2Vyc3xlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60" alt="!" id="alt_img_4" class="alt-img" onclick="add_image(this.src)" />
+</div>
+<div id="tool_section">
+<fieldset id="filter_tool" class="cnt">
+<legend>Filter</legend>
+<section class="container">
+<span class="label">Border: </span>
+<input type="range" min="0" max="15" class="slider" oninput="filter()" value="0" id="border" />
+<br>
+</section>
+<section class="container">
+<span class="label">Round corner: </span>
+<input type="range" min="0" max="100" class="slider" oninput="filter()" value="0" id="bodrradius" />
+<br>
+</section>
+<section class="container">
+<span class="label">Brightness: </span>
+<input type="range" min="0" max="250" class="slider" oninput="filter()" value="100" id="brightness" />
+<br>
+</section>
+<section class="container">
+<span class="label">Grayscale: </span>
+<input type="range" min="0" max="100" class="slider" oninput="filter()" value="0" id="grayscale" />
+<br>
+</section>
+<section class="container">
+<span class="label">Hue-rotate: </span>
+<input type="range" min="0" max="360" class="slider" oninput="filter()" value="360" id="huerotate" />
+<br>
+</section>
+<section class="container">
+<span class="label">Saturate: </span>
+<input type="range" min="0" max="250" class="slider" oninput="filter()" value="100" id="saturate" />
+<br>
+</section>
+<section class="container">
+<span class="label">Contrast: </span>
+<input type="range" min="0" max="250" class="slider" oninput="filter()" value="100" id="contrast" />
+<br>
+</section>
+<section class="container">
+<span class="label">Sepia: </span>
+<input type="range" min="0" max="250" class="slider" oninput="filter()" value="0" id="sepia" />
+<br>
+</section>
+<section class="container">
+<span class="label">Invert: </span>
+<input type="range" min="0" max="250" class="slider" oninput="filter()" value="0" id="invert" />
+<br>
+</section>
+<section class="container">
+<span class="label">Blur: </span>
+<input type="range" min="0" max="50" class="slider" oninput="filter()" value="0" id="blur" />
+<br>
+</section>
+<section class="container">
+<span class="label">Opacity: </span>
+<input type="range" min="0" max="100" class="slider" oninput="filter()" value="100" id="opacity" />
+<br>
+</section>
+<input type="button" id="reset_btn" value="reset filters" onclick="reset()" />
+<br>
+</fieldset>
+<fieldset id="text_tool">
+<legend>Text tool</legend>
+<input type="text" value="" placeholder="add text here.." id="watermark" class="df_input" />
+<input type="button" value="Add text" id="addTxt" onclick="addTxt()" class="df_btn" /><br />
+<section class="container">
+<span class="label" style="top:14px">Top-bottom: </span>
+<input type="range" class="slider_1" id="top" min="0" max="300" value="0" oninput="alignText()" /><br />
+</section>
+<section class="container">
+<span class="label" style="top:16.5px">Left-right: </span>
+<input type="range" class="slider_1" id="left" min="0" max="500" value="0" oninput="alignText()" />
+<br>
+</section>
+<section class="container">
+<span class="label" style="top:16px">Font size: </span>
+<input type="range" class="slider_1" id="font_size" min="5" max="25" value="10" oninput="alignText()" />
+<br>
+</section>
+<section class="container color_cnt">
+<span class="label" style="top:12px">Red: </span>
+<input type="range" min="0" max="255" value="0" id="red" class="slider" style="top:17px" oninput="changeColor()" />
+</section>
+<section class="container color_cnt">
+<span class="label" style="top:10px">Green: </span>
+<input type="range" min="0" max="255" value="0" id="green" class="slider" style="top:18px" oninput="changeColor()" />
+</section>
+<section class="container color_cnt">
+<span class="label" style="top:10px">Blue: </span>
+<input type="range" min="0" max="255" value="0" id="blue" class="slider" style="top:18px" oninput="changeColor()" />
+</section>
+<section class="font_cnt type_2">
+<span class="font_style" onclick="changeFont_1()" style="font-family:lora;">Font</span>
+<span class="font_style" onclick="changeFont_2()" style="font-family:bangers;">Font</span>
+<span class="font_style" onclick="changeFont_3()" style="font-family:courgette;">Font</span>
+<span class="font_style" onclick="changeFont_4()" style="font-family:Azeret Mono;">Font</span>
+</section>
+<input type="button" value="back" id="back_btn"  class="back_btn" onclick="close_cnt()" />
+<div style="position:relative;top:40px;width:10px;height:30px;"></div>
+</fieldset>
+<fieldset id="upload_tool">
+<input type="url" id="imgUrl" class="df_input" placeholder="Enter image url" />
+<input type="button" id="changeImg" class="df_btn" value="upload" onclick="validateUrl()" />
+<br />
+<span class="label" style="position:relative;top:10px;">Or, upload from your device</span>
+<br />
+<input type="file" id="fileSelector" />
+<br />
+<input type="button" class="back_btn" value="back" style="top:22px;" onclick="close_cnt2()" />
+<div style="position:relative;top:40px;width:10px;height:30px;"></div>
+</fieldset>
+</div>
+<fieldset class="cnt" id="tool_cnt">
+<legend>Tools</legend>
+<section class="tool" onclick="addImg()">
+<img src="https://cdn-icons-png.flaticon.com/128/747/747416.png" alt="!" class="icon" /><br>
+<span class="label_2">Upload</span>
+</section>
+<section class="tool" onclick="addText()">
+<img src="https://cdn-icons-png.flaticon.com/128/3721/3721901.png" alt="!" class="icon" /><br>
+<span class="label_2">Add text</span>
+</section>
+<section class="tool" onclick="rotate()">
+<img src="https://cdn-icons-png.flaticon.com/128/32/32418.png" alt="!" class="icon" /><br>
+<span class="label_2">Rotate</span>
+</section>
+<section class="tool" onclick="zoomIn()">
+<img src="https://cdn-icons-png.flaticon.com/128/117/117453.png" alt="!" class="icon" /><br>
+<span class="label_2">Zoom in</span>
+</section>
+<section class="tool" onclick="zoomOut()">
+<img src="https://cdn-icons-png.flaticon.com/128/74/74158.png" alt="!" class="icon" /><br>
+<span class="label_2">Zoom out</span>
+</section>
+<section class="tool" onclick="setDefault()">
+<img src="https://cdn-icons-png.flaticon.com/128/85/85871.png" alt="!" class="icon" /><br>
+<span class="label_2">Default</span>
+</section>
+</fieldset>
+
+
+
+
+</div>
+<script>
+var main_img = document.getElementById("main_image");
+var add_image =(src)=> {
+main_image.src=src;
+main_img.style.filter="brightness(100%) " + "grayscale(0%) " + "hue-rotate(360deg) " +"saturate(100%) " + "contrast(100%) " + "sepia(0%) " + "invert(0%) " + "blur(0px) " + "opacity(100%)" ;
+brightness.value="100";
+grayscale.value="0";
+huerotate.value="360";
+saturate.value="100";
+contrast.value="100";
+sepia.value="0";
+invert.value="0";
+blur.value="0";
+opacity.value="100";
+}
+var filter =()=>{
+var brightness = document.getElementById("brightness").value;
+var grayscale = document.getElementById("grayscale").value;
+var huerotate = document.getElementById("huerotate").value;
+var saturate = document.getElementById("saturate").value;
+var contrast = document.getElementById("contrast").value;
+var sepia = document.getElementById("sepia").value;
+var invert = document.getElementById("invert").value;
+var blur = document.getElementById("blur").value;
+var opacity = document.getElementById("opacity").value;
+var border = document.getElementById("border").value;
+var bodr = document.getElementById("bodrradius").value;
+main_img.style.filter="brightness("+brightness+"%) " + "grayscale("+grayscale+"%) " + "hue-rotate("+huerotate+"deg) " +"saturate("+saturate+"%) " + "contrast("+contrast+"%) " + "sepia("+sepia+"%) " + "invert("+invert+"%) " + "blur("+blur+"px) " + "opacity("+opacity+"%)" ;
+main_img.style.border=border+"px " +" solid black";
+main_img.style.borderRadius=bodr+"px";
+}
+var reset =()=>{
+main_img.style.filter="brightness(100%) " + "grayscale(0%) " + "hue-rotate(360deg) " +"saturate(100%) " + "contrast(100%) " + "sepia(0%) " + "invert(0%) " + "blur(0px) " + "opacity(100%)" ;
+brightness.value="100";
+grayscale.value="0";
+huerotate.value="360";
+saturate.value="100";
+contrast.value="100";
+sepia.value="0";
+invert.value="0";
+blur.value="0";
+opacity.value="100";
+}
+var rotate =()=>{
+main_img.style.transform += "rotate("+90+"deg)";
+}
+var setDefault =()=>{
+main_img.style.transform="rotatey(0deg) rotatex(0deg)";
+}
+var zoomIn =()=>{
+main_img.style.transform+="scale("+1.05+")";
+}
+var zoomOut =()=>{
+main_img.style.transform+="scale("+0.95+")";
+}
+var addText =()=>{
+var sec_1 = document.getElementById("filter_tool");
+var sec_2 = document.getElementById("text_tool");
+sec_1.style.display="none";
+sec_2.style.display="inline-block";
+}
+var addTxt =()=>{
+var sample_text = document.getElementById("watermark").value;
+var wm_text = document.getElementById("wm_text");
+wm_text.innerHTML=sample_text;
+}
+var alignText =()=>{
+var top_mg = document.getElementById("top").value;
+var left_mg = document.getElementById("left").value;
+var font_size = document.getElementById("font_size").value;
+wm_text.style.top=top_mg+"px";
+wm_text.style.left=left_mg+"px";
+wm_text.style.fontSize=font_size+"px";
+}
+var close_cnt =()=>{
+var sec_3 = document.getElementById("filter_tool");
+var sec_4 = document.getElementById("text_tool");
+sec_3.style.display="inline-block";
+sec_4.style.display="none";
+}
+var changeFont_1 =()=>{
+wm_text.style.fontFamily="lora";
+}
+var changeFont_2 =()=>{
+wm_text.style.fontFamily="bangers";
+}
+var changeFont_3 =()=>{
+wm_text.style.fontFamily="courgette";
+}
+var changeFont_4 =()=>{
+wm_text.style.fontFamily="Azeret Mono";
+}
+var changeColor =()=>{
+var red_val = document.getElementById("red").value;
+var green_val = document.getElementById("green").value;
+var blue_val = document.getElementById("blue").value;
+var new_text = document.getElementById("wm_text");
+new_text.style.color="rgb("+red_val+","+green_val+","+blue_val+")";
+}
+var addImg =()=>{
+var sec_5 = document.getElementById("filter_tool");
+var sec_6 = document.getElementById("text_tool");
+var sec_7 = document.getElementById("upload_tool");
+sec_5.style.display="none";
+sec_6.style.display="none";
+sec_7.style.display="inline-block";
+}
+let close_cnt2 =()=>{
+var sec_5 = document.getElementById("filter_tool");
+var sec_7 = document.getElementById("upload_tool");
+sec_5.style.display="inline-block";
+sec_7.style.display="none";
+}
+let validateUrl =()=> {
+var url = document.getElementById("imgUrl").value;
+main_img.src=url;
+}
+var imgUrl = document.getElementById("fileSelector");
+imgUrl.addEventListener('change', ()=>{
+var source = window.URL.createObjectURL(imgUrl.files[0]);
+//console.log(source);
+document.getElementById("imgUrl").value=source;
+document.getElementById("main_image").src=source;
+});
+</script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 <!--    
 
 Made by: Vinit;
-made with: hardwork & hands;
-made in: 7 working hours;
+Made with: VS Code;
+Made in: 6 working hours;
 
-if you face any problems,errors or responsive problems you can dm me on discord link at bottom of readme file, i'll fix it ASAP;
+if you face any problems, errors or responsive problems you can dm me on discord link at bottom of readme file, i'll fix it ASAP;
 
 
-new update: added text color change function;
+New update: added text color change function;
 : added custom image selector & select from device option;
 
 -->
@@ -306,5 +306,438 @@ document.getElementById("imgUrl").value=source;
 document.getElementById("main_image").src=source;
 });
 </script>
+  
+<style>
+  * {
+margin:0;
+padding:0;
+user-select:none;
+box-sizing:border-box;
+scroll-behavior:smooth;
+tap-highlight-color:transparent;
+-webkit-tap-highlight-color:transparent;
+-webkit-box-sizing:border-box;
+-webkit-user-select:none;
+font-family:poppins;
+}
+
+::placeholder {
+color:#111217;
+}
+
+body {
+width:100vw;
+font-family:poppins;
+background:#CCD6EB;
+}
+
+#wrapper {
+
+}
+
+#image_section {
+width:100%;
+height:auto;
+text-align:center;
+}
+
+#main_image {
+position:relative;
+width:85%;
+height:auto;
+top:20px;
+border-radius:10px;
+}
+
+.alt-img {
+position:relative;
+margin:7px;
+height:45px;
+width:65px;
+top:30px;
+border-radius:10px;
+}
+
+.alt-img:hover {
+border:3px solid #3f5ea0;
+}
+
+.alt-img:active {
+transform:scale(0.9);
+}
+
+#tool_section {
+position:relative;
+width:100%;
+height:auto;
+}
+
+.label {
+color:#0d1422;
+}
+
+#label_1 {
+position:relative;
+font-size:1rem;
+font-weight:500;
+top:40px;
+left:15px;
+}
+
+#img_url {
+position:relative ;
+top:45px;
+left:15px;
+width:70%;
+height:25px;
+border-radius:5px;
+border:none;
+outline:none;
+text-indent:7px;
+}
+
+#submit {
+position:relative ;
+top:45px;
+left:17px;
+width:15%;
+height:25px;
+border-radius:5px;
+border:none;
+outline:none;
+}
+
+#filter_tool {
+position:relative;
+width:85%;
+left:7%;
+top:30px;
+border-radius:7px;
+height:auto;
+border:2px solid #3f5ea0;
+display:;
+}
+
+legend {
+position:relative;
+color:#23355a;
+}
+
+.label {
+position:relative;
+color:#23355a;
+left:10px;
+padding:5px;
+font-size:0.8rem;
+}
+
+.slider {
+position:relative;
+appearance: none;
+height:5px;
+background:#3f5ea0;
+opacity:0.7;
+border-radius:7px;
+float:right;
+right:15px;
+width:60%;
+top:5px;
+}
+
+.slider:hover {
+height:6.5px;
+}
+
+.slider::-webkit-slider-thumb {
+appearance: none;
+width: 12px;
+height: 12px;
+background:#94a9d5;
+border-radius: 50%;
+}
+
+.slider::-webkit-slider-thumb:hover {
+width: 15px;
+height: 15px;
+}
+
+.container {
+padding-bottom:6px;
+}
+
+#reset_btn {
+position:relative;
+width:60%;
+height:20px;
+background:#94a9d5;
+border:none;
+outline:none;
+border-radius:8px;
+left:20%;
+bottom:3px;
+color:#23355a;
+font-size:0.65rem;
+font-family:poppins;
+}
+
+#reset_btn:active {
+transform:scale(0.9);
+}
+
+#tool_cnt {
+display:flex;
+position:relative;
+width:85%;
+left:7%;
+top:40px;
+border-radius:7px;
+height:auto;
+justify-content:center;
+border:2px solid #3f5ea0;
+}
+
+.icon {
+position:relative ;
+height:25px;
+width:25px;
+text-align:center ;
+}
+
+.tool {
+position:relative;
+text-align:center;
+padding-left:16px;
+}
+
+.label_2 {
+font-size:0.6rem;
+color:#23355a;
+font-weight:500;
+}
+
+#text_tool {
+position:relative;
+width:85%;
+left:7%;
+top:30px;
+border-radius:7px;
+height:auto;
+border:2px solid #3f5ea0;
+display:none;
+}
+
+.slider_1 {
+position:relative;
+appearance: none;
+height:5px;
+background:#3f5ea0;
+opacity:0.7;
+border-radius:7px;
+float:right;
+right:15px;
+width:60%;
+top:20px;
+}
+
+.slider_1:hover {
+height:6.5px;
+}
+
+.slider_1::-webkit-slider-thumb {
+appearance: none;
+width: 12px;
+height: 12px;
+background:#94a9d5;
+border-radius: 50%;
+}
+
+.slider_1::-webkit-slider-thumb:hover {
+width: 15px;
+height: 15px;
+}
+
+#wm_text {
+position:absolute;
+font-size:12px;
+z-index:999;
+}
+
+#watermark {
+position:relative;
+width:60%;
+height:20px;
+background:#94a9d0;
+border:none;
+outline:none;
+border-radius:4px;
+left:5%;
+bottom:3px;
+color:#23355a;
+top:7px;
+text-indent:7px;
+font-family:poppins;    
+}
+
+#addTxt {
+position:relative;
+width:30%;
+height:20px;
+background:#94a9d5;
+border:none;
+outline:none;
+border-radius:4px;
+left:5%;
+bottom:3px;
+color:#23355a;
+font-family:poppins;
+top:7px;
+}
+
+#back_btn , .back_btn {
+position:relative;
+width:60%;
+height:20px;
+background:#94a9d5;
+border:none;
+outline:none;
+border-radius:8px;
+left:20%;
+top:20px;
+font-family:poppins;
+color:#23355a;
+}
+
+#back_btn:active {
+transform:scale(0.9);
+}
+
+@media only screen and (min-width: 800px) {
+#main_image {
+width:50%;
+height:auto;
+}
+#filter_tool {
+width:40%;
+left:30%;
+}
+#tool_cnt {
+width:40%;
+left:30%;
+}
+#text_tool {
+width:40%;
+left:30%;
+}
+.tool {
+padding:25px;
+}
+}
+@media only screen and (min-width: 600px) {
+#main_image {
+width:80%;
+height:auto;
+}
+#filter_tool {
+width:60%;
+left:20%;
+}
+#tool_cnt {
+width:60%;
+left:20%;
+}
+#text_tool {
+width:60%;
+left:20%;
+}
+.tool {
+padding:21px;
+}
+}
+@media only screen and (min-width: 1000px) {
+#main_image {
+width:40%;
+height:auto;
+}
+#filter_tool {
+width:40%;
+left:30%;
+}
+#tool_cnt {
+width:40%;
+left:30%;
+}
+#text_tool {
+width:40%;
+left:30%;
+}
+.tool {
+padding:25px;
+}
+}
+
+.font_style {
+background:#94a9d5;
+position:relative;
+top:15px;
+border-radius:5.6px;
+padding-left:5px;
+padding-right:5px;
+}
+
+.type_2 {
+text-align:center ;
+}
+
+#upload_tool {
+position:relative;
+width:85%;
+left:7%;
+top:30px;
+border-radius:7px;
+height:auto;
+border:2px solid #3f5ea0;
+display:none;
+}
+
+.df_input {
+position:relative;
+width:60%;
+height:20px;
+background:#94a9d0;
+border:none;
+outline:none;
+border-radius:4px;
+left:5%;
+bottom:3px;
+color:#23355a;
+top:7px;
+text-indent:7px;
+font-family:poppins;    
+}
+
+.df_btn {
+position:relative;
+width:30%;
+height:20px;
+background:#94a9d5;
+border:none;
+outline:none;
+border-radius:4px;
+left:5%;
+bottom:3px;
+color:#23355a;
+font-family:poppins;
+top:7px;
+}
+
+#fileSelector {
+position:relative ;
+background:#94a9d5;
+top:14px;
+left:15px;
+color:#23355a;
+font-family:poppins;
+}
+  </style>
 </body>
 </html>

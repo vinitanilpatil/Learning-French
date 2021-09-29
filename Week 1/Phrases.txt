@@ -1,0 +1,17 @@
+English Phrase = French Phrase
+
+1] Good Morning ! = Bonjour !
+
+2] Good Evening ! = Bonsoir !
+
+3] Hi ! = Salut
+
+4] A tout a l'heure  = See You Later 
+
+5] A bientot  = See You Soon 
+
+6] Au revoir = Goodbye
+
+7] Comment tu t'appelles ? = What is your name ?
+
+8] Je m'appelle Vinit = My name is Vinit

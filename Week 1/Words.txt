@@ -26,5 +26,3 @@ Word / Pronounciation = Meaning
 12] for = pour
 
 13] me = moi
-
-15/9/2021
